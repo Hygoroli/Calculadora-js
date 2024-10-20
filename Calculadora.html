@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body{
+            background: black;
+            color: bisque;
+            font: normal 18pt Arial;
+        }
+
+        input{
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res{
+            margin-top: 20px;
+        }
+        div#sub{
+            margin-top: 20px;
+        }
+        div#mult{
+            margin-top: 20px;
+        }
+        div#divi{
+            margin-top: 20px;
+        }
+        div#porc{
+            margin-top: 20px;
+        }
+        h1{
+            color: blueviolet;
+        }
+        #limp{
+            background: #beb9b9;
+            color: white;
+            font: normal 15pt Arial;                     
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        #igual{
+            background: green;
+            color: white;
+            font: normal 15pt Arial;                     
+            padding: 5px 15px;
+            border-radius: 10px;
+            margin-top: 10px;  
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora! Lendária</h1>
+
+    <div id="somatorio" class="somatorio">
+    <h2>Somatório</h2>
+    <input type="number" name="txtso1" id="txtso1"> +
+    <input type="number" name="txtso2" id="txtso2">
+    <input type="button" id="igual" value="Somar" onclick="somar()">
+    <input type="button" id="limp" value="Limpar" onclick="limpar()">
+    <div id="res">Resultado...</div> 
+    </div>
+
+    <div id="subtracao" class="subtracao">
+    <h2>Subtração</h2>
+    <input type="number" name="txtsu1" id="txtsu1"> -
+    <input type="number" name="txtsu2" id="txtsu2">
+    <input type="button" id="igual" value="Subtrair" onclick="subtrair()">
+    <input type="button" id="limp" value="Limpar" onclick="limpar1()">
+    <div id="sub">Resultado...</div>
+    </div>
+
+    <div id="multiplicacao" class="multiplicacao">
+        <h2>Multiplicação</h2>
+        <input type="number" name="txtmu1" id="txtmu1"> x
+        <input type="number" name="txtmu2" id="txtmu2">
+        <input type="button" id="igual" value="Multiplic." onclick="multiplicar()">
+        <input type="button" id="limp" value="Limpar" onclick="limpar2()">
+        <div id="mult">Resultado...</div>
+    </div>
+
+    <div id="divisao" class="divisao">
+        <h2>Divisão</h2>
+        <input type="number" name="txtdi1" id="txtdi1"> /
+        <input type="number" name="txtdi2" id="txtdi2">
+        <input type="button" id="igual" value="Dividir" onclick="dividir()">
+        <input type="button" id="limp" value="Limpar" onclick="limpar3()">
+        <div id="divi">Resultado...</div>
+    </div>
+
+    <div id="porcentagem" class="porcentagem">
+        <h2>Porcentagem</h2>
+        <input type="number" name="txtpo1" id="txtpo1"> %
+        <input type="number" name="txtpo2" id="txtpo2">
+        <input type="button" id="igual" value="Percent." onclick="porcento()">
+        <input type="button" id="limp" value="Limpar" onclick="limpar4()">
+        <div id="porc">Resultado...</div>
+    </div>
+    <script>
+        //Soma
+        function somar(){
+            var tn1 = window.document.getElementById('txtso1')
+            var tn2 = window.document.getElementById('txtso2')
+            var res = window.document.getElementById('res')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 + n2
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}!</strong>` 
+            res.style.color = 'blueviolet'
+        }
+        //Subtração
+        function subtrair(){
+            var sub1 = window.document.getElementById('txtsu1')
+            var sub2 = window.document.getElementById('txtsu2')
+            var vlsub = window.document.getElementById('sub')
+            var s1 = Number(sub1.value)
+            var s2 = Number(sub2.value)
+            var su = s1 - s2
+            sub.innerHTML = `A subtração entre ${s1} e ${s2} é igual a <strong>${su}!</strong>`
+            sub.style.color = 'blueviolet'
+        }
+        //Multiplicação
+        function multiplicar(){
+            var mult1 = window.document.getElementById('txtmu1')
+            var mult2 = window.document.getElementById('txtmu2')
+            var vlmult = window.document.getElementById('mult')
+            var m1 = Number(mult1.value)
+            var m2 = Number(mult2.value)
+            var mu = m1 * m2
+            mult.innerHTML = `A multiplicação entre ${m1} e ${m2} é igual a <strong>${mu}!</strong>`
+            mult.style.color = 'blueviolet'
+        }
+        //Divisão
+        function dividir(){
+            var div1 = window.document.getElementById('txtdi1')
+            var div2 = window.document.getElementById('txtdi2')
+            var vldivt = window.document.getElementById('divi')
+            var d1 = Number(div1.value)
+            var d2 = Number(div2.value)
+            var di = d1 / d2
+            divi.innerHTML = `A Divisão entre ${d1} e ${d2} é igual a <strong>${di}!</strong>`
+            divi.style.color = 'blueviolet'
+        }
+        //Porcentagem
+        function porcento(){
+            var porc1 = window.document.getElementById('txtpo1')
+            var porc2 = window.document.getElementById('txtpo2')
+            var vlporct = window.document.getElementById('porc')
+            var p1 = Number(porc1.value)
+            var p2 = Number(porc2.value)
+            var po = (p1 / 100)* p2
+            porc.innerHTML = `${p1} % de ${p2} é igual a <strong>${po}!</strong>`
+            porc.style.color = 'blueviolet'
+        }
+
+        //Limpar
+        function limpar(){
+            res.innerHTML='Resultado...'
+            res.style.color= 'bisque'
+        }
+        function limpar1(){
+            sub.innerHTML='Resultado...'
+            sub.style.color= 'bisque'
+        }
+        function limpar2(){
+            mult.innerHTML='Resultado...'
+            mult.style.color= 'bisque'
+        }
+        function limpar3(){
+            divi.innerHTML='Resultado...'
+            divi.style.color= 'bisque'
+        }
+        function limpar4(){
+            porc.innerHTML='Resultado...'
+            porc.style.color= 'bisque'
+        }
+    </script>
+</body>
+</html>
